@@ -3,9 +3,9 @@ Módulo Python de integração com serviço de previsão meteorológica CPTEC/IN
 
 Desenvolvi para uso pessoal em outro projeto, por isso a integração com todos os serviços disponibilizados pela CPTEC ainda é um trabalho em evolução.
 
-* A previsão para os próximos 4 dias
+* A previsão do tempo é para os próximos 4 dias
 * A listagem de cidades retorna no máximo 60 cidades
-* Testado na versão 3.9.7
+* Testado em Python 3.9.7
 
 # Exemplo
 
