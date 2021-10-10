@@ -12,15 +12,10 @@ class cptec:
     @classmethod
     def previsao(self, id):
         '''Retorna a previsao de tempo para 4 dias
-        
-        Parâmetros
-        ----------
-        id : str
-            ID da cidade, utilizar busca_id_cidade() para encontrar o ID
-            
-        Retorno
-        -------
-        Uma lista de namedtuple Previsao(min,max,tempo,dia)
+
+        Informar ID da cidade, utilizar busca_id_cidade() para encontrar o ID
+
+        Retorna uma lista de namedtuple Previsao(min,max,tempo,dia)
             min: Temperatura mínima
             max: Temperatura máxima
             tempo: Descrição textual de como estará o tempo
@@ -39,12 +34,7 @@ class cptec:
     def busca_id_cidade(self, cidade, estado):
         '''Retorna o id para uma determinada cidade e estado ou None caso nada seja encontrado
         
-        Parâmetros
-        ----------
-        cidade : str
-            Nome da cidade, informar sem acentos
-        estado : str
-            Sigla da UF
+        Informar os parâmetros cidade e estado, ex.: (cidade='porto alegre', estado='rs')
         '''
         for el in self.lista_cidades(cidade):
             if el[1].lower() == estado.lower():
@@ -53,17 +43,9 @@ class cptec:
     
     @classmethod
     def lista_cidades(self, cidade=None):
-        '''Retorna uma lista de cidades com suas respectivas UF e id 
-        
-        Parâmetros
-        ----------
-        cidade : str, opcional
-            Filtro de nome da cidade, informar sem acentos (padrão None)
-        
-        Retorno
-        -------
-        list
-            Lista de tuplas no formato (cidade,UF,id)
+        '''Retorna uma lista de tuplas no formato (cidade,UF,id)
+
+        O parâmetro cidade é opcional e atua como filtro nas cidades retornadas. Informar sem acentos.        
         '''
         url = self.BASE_URL + 'listaCidades'
         if cidade is not None:
@@ -80,13 +62,3 @@ class cptec:
         resposta = urllib.request.urlopen(url).read().decode('iso-8859-1')
         root = ET.fromstring(resposta)
         print(resposta)
-
-    
-
-# print(cptec.lista_cidades())
-# ~ print("Codigo",cptec.busca_id_cidade("porto alegre", "rs"))
-# ~ previsoes = cptec.previsao(237)
-# ~ for p in previsoes:
-    # ~ print(f'min={p.min} max={p.max} tempo={p.tempo} tempo={p.dia}')
-
-cptec.condicoes_atuais(estacoes['RS']['Salgado Filho'])
