@@ -42,16 +42,14 @@ class cptec:
         return None
     
     @classmethod
-    def lista_cidades(self, cidade=None):
+    def lista_cidades(self, cidade):
         '''Retorna uma lista de tuplas no formato (cidade,UF,id)
 
-        O parâmetro cidade é opcional e atua como filtro nas cidades retornadas. Informar sem acentos.        
+        Informar o nome da cidade sem acentos.
         '''
-        url = self.BASE_URL + 'listaCidades'
-        if cidade is not None:
-            cidade = urllib.parse.quote(cidade)
-            url += f'?city={cidade}'
-
+        
+        cidade = urllib.parse.quote(cidade)
+        url = self.BASE_URL + f'listaCidades?city={cidade}'
         resposta = urllib.request.urlopen(url).read().decode('iso-8859-1')
         root = ET.fromstring(resposta)
         return [(el.find('nome').text, el.find('uf').text, el.find('id').text) for el in root]
