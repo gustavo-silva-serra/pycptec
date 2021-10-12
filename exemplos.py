@@ -10,3 +10,6 @@ for p in previsoes:
 # Listar cidades 
 for cidade in cptec.lista_cidades('Rio de'):
     print(cidade)
+
+# Busca as condições atuais para o aeroporto Salgado Filho
+print(cptec.condicoes_atuais(estacoes['RS']['Salgado Filho']))

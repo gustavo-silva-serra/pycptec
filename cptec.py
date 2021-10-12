@@ -56,7 +56,15 @@ class cptec:
     
     @classmethod
     def condicoes_atuais(self, estacao):
+        '''Retorna a situação atual do tempo
+        
+        Informar o nome da estação a qual se deseja obter a informação. A lista de estações pode ser 
+        encontrada em cptec_siglas.estacoes.
+
+        Retorna namedtuple Tempo(pressao,temperatura,tempo,data_hora)
+        '''
         url = self.BASE_URL + f'estacao/{estacao}/condicoesAtuais.xml'
         resposta = urllib.request.urlopen(url).read().decode('iso-8859-1')
         root = ET.fromstring(resposta)
-        print(resposta)
+        Tempo = namedtuple('Tempo', 'pressao,temperatura,tempo,data_hora')
+        return Tempo(root.find('pressao').text, root.find('temperatura').text, siglas_tempo[root.find('tempo').text], root.find('atualizacao').text)
