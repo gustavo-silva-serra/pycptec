@@ -7,7 +7,12 @@ Desenvolvi para uso pessoal em outro projeto, por isso a integração com todos 
 * A listagem de cidades retorna no máximo 60 cidades
 * Testado em Python 3.9.7
 
-# Exemplo
+# instalação
+```
+ pip install git+https://github.com/gustavo-silva-serra/pycptec
+ ```
+
+# exemplo
 
 Para buscar a previsão para São Paulo, SP
 
