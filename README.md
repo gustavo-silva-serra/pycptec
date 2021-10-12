@@ -12,16 +12,23 @@ Desenvolvi para uso pessoal em outro projeto, por isso a integração com todos 
 Para buscar a previsão para São Paulo, SP
 
 ```python
-from cptec import cptec
-id = cptec.busca_id_cidade('sao paulo', 'SP')
-for p in cptec.previsao(id):
+from cptec import Cptec
+id = Cptec.busca_id_cidade('sao paulo', 'SP')
+for p in Cptec.previsao(id):
   print(f'min={p.min} max={p.max} tempo={p.tempo} dia={p.dia}')
 ```
 
 Para listar as cidades que possuem 'Porto' no nome
 
 ```python
-from cptec import cptec
-for cidade in cptec.lista_cidades('Porto'):
-    print(cidade)
+from cptec import Cptec
+for cidade in Cptec.lista_cidades('Porto'):
+  print(cidade)
+```
+
+O parâmetro para a busca das condições é a sigla da estação metereológica. Favor consultar o dicionário cptec_siglas.estacoes.
+```python
+from cptec import Cptec
+from cptec import estacoes
+print(Cptec.condicoes_atuais(estacoes['RS']['Salgado Filho']))
 ```

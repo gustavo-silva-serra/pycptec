@@ -1,11 +1,11 @@
 import urllib.request
 import xml.etree.ElementTree as ET
 import html
-from cptec_siglas import siglas_tempo
-from cptec_siglas import estacoes
+from .cptec_siglas import siglas_tempo
+from .cptec_siglas import estacoes
 from collections import namedtuple
 
-class cptec:
+class Cptec:
     
     BASE_URL = "http://servicos.cptec.inpe.br/XML/"
     
