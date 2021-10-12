@@ -5,6 +5,7 @@ Desenvolvi para uso pessoal em outro projeto, por isso a integração com todos 
 
 * A previsão do tempo é para os próximos 4 dias
 * A listagem de cidades retorna no máximo 60 cidades
+* A busca das condições atuais não é por cidade, mas por estação meteorológica.
 * Testado em Python 3.9.7
 
 # instalação
@@ -31,7 +32,7 @@ for cidade in Cptec.lista_cidades('Porto'):
   print(cidade)
 ```
 
-O parâmetro para a busca das condições é a sigla da estação metereológica. Favor consultar o dicionário cptec_siglas.estacoes.
+O parâmetro para a busca das condições é a sigla da estação meteorológica. Favor consultar o dicionário cptec_siglas.estacoes.
 ```python
 from cptec import Cptec
 from cptec import estacoes
